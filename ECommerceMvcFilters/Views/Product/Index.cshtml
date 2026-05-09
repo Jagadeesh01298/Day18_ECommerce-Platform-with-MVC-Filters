@@ -1,0 +1,54 @@
+﻿@model List<ECommerceMvcFilters.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2>Products</h2>
+
+<a class="btn btn-success mb-3" asp-controller="Product" asp-action="Create">
+    Add Product
+</a>
+
+<a class="btn btn-warning mb-3" asp-controller="Product" asp-action="ThrowError">
+    Test Error Filter
+</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>₹@product.Price</td>
+                <td>@product.Description</td>
+                <td>
+                    <a class="btn btn-primary"
+                           asp-controller="Product"
+                           asp-action="Details"
+                           asp-route-id="@product.Id">
+                        Details
+                    </a>
+
+                    <a class="btn btn-success"
+                           asp-controller="Order"
+                           asp-action="PlaceOrder"
+                           asp-route-productId="@product.Id">
+                        Place Order
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

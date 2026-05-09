@@ -1,0 +1,45 @@
+﻿@model List<ECommerceMvcFilters.Models.Order>
+
+@{
+    ViewData["Title"] = "My Orders";
+}
+
+<h2>My Orders</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        You have not placed any orders yet.
+    </div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Order Id</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Username</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.ProductName</td>
+                    <td>₹@order.Price</td>
+                    <td>@order.Username</td>
+                    <td>@order.OrderDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a class="btn btn-primary" asp-controller="Product" asp-action="Index">
+    Back to Products
+</a>

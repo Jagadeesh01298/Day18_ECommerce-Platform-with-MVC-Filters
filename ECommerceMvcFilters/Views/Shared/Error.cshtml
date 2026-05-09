@@ -1,0 +1,22 @@
+﻿@model ECommerceMvcFilters.Models.ErrorViewModel
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h2 class="text-danger">Oops! Something went wrong.</h2>
+
+<div class="alert alert-danger">
+    @Model.Message
+</div>
+
+@if (!string.IsNullOrEmpty(Model.RequestId))
+{
+    <p>
+        <strong>Request Id:</strong> @Model.RequestId
+    </p>
+}
+
+<a class="btn btn-primary" asp-controller="Home" asp-action="Index">
+    Go Home
+</a>

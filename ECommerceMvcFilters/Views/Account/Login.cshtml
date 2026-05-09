@@ -1,0 +1,32 @@
+﻿@model ECommerceMvcFilters.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<p>Use the following credentials:</p>
+
+<div class="alert alert-info">
+    <strong>Username:</strong> admin <br />
+    <strong>Password:</strong> password
+</div>
+
+<form asp-action="Login" method="post">
+    <div class="mb-3">
+        <label>Username</label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Password</label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <button type="submit" class="btn btn-success">Login</button>
+</form>

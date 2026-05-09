@@ -1,0 +1,28 @@
+﻿@model ECommerceMvcFilters.Models.Product
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h2>Add Product</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label>Product Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Price</label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Description</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Product</button>
+
+    <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+</form>
